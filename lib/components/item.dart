@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:tune_player/models/item_info.dart';
 
 class Item extends StatelessWidget {
-  final Color color;
-  final String sound;
-  const Item({super.key, required this.color, required this.sound});
+  final ItemInfo item;
+  const Item({super.key,  required this.item});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: () async {
-          AssetsAudioPlayer.newPlayer().open(
-            Audio(sound),
-            autoStart: true,
-            showNotification: true,
-          );
-        },
+        onTap:()=> item.playSound(item.sound),
         child: Container(
-          color: color,
+          color: item.color,
         ),
       ),
     );

@@ -17,8 +17,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
-          child: Scaffold(
+    return SafeArea(
+      child: Scaffold(
         appBar: AppBar(
           title: const Text(
             "Tunes",
@@ -28,38 +28,13 @@ class HomePage extends StatelessWidget {
           ),
           backgroundColor: const Color.fromARGB(255, 85, 84, 84),
         ),
-        body: Column(
-          children: [
-            Item(
-              color: tunes[0].color,
-              sound: tunes[0].sound,
-            ),
-            Item(
-              color: tunes[1].color,
-              sound: tunes[1].sound,
-            ),
-            Item(
-              color: tunes[2].color,
-              sound: tunes[2].sound,
-            ),
-            Item(
-              color: tunes[3].color,
-              sound: tunes[3].sound,
-            ),
-            Item(
-              color: tunes[4].color,
-              sound: tunes[4].sound,
-            ),
-            Item(
-              color: tunes[5].color,
-              sound: tunes[5].sound,
-            ),
-            Item(
-              color: tunes[6].color,
-              sound: tunes[6].sound,
-            ),
-          ],
-        ),
+       body: Column (
+        children: tunes
+            .map(
+              (e) => Item(item: e),
+            )
+            .toList(),
+       ),
       ),
     );
   }
